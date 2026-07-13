@@ -1,12 +1,8 @@
 # SQL Sales Performance Analysis: Detecting Sales Order Outliers
 
-## Overview
-
 This project was developed as part of the **DQLab SQL Hackathon 2026**.
 
-The objective is to identify abnormal sales transactions (outliers) using statistical analysis with SQL. Rather than comparing all transactions together, each transaction is evaluated within its corresponding **Level-2 Sales Manager** group, ensuring a more accurate and meaningful comparison.
-
-This project demonstrates SQL skills, statistical analysis, and business problem-solving using **MySQL 5.7**.
+The objective is to identify abnormal sales transactions (outliers) using the **Z-Score** method with **MySQL 5.7**. Instead of comparing all transactions together, each transaction is evaluated within its corresponding **Level-2 Sales Manager** group, ensuring a more meaningful statistical comparison.
 
 ---
 
@@ -14,112 +10,88 @@ This project demonstrates SQL skills, statistical analysis, and business problem
 
 PT XYZ observed that purchase orders appeared healthy, yet overall sales performance remained stagnant.
 
-One possible cause was an uneven distribution of sales transactions among field sales representatives.
-
-To investigate this issue, sales transactions were analyzed to detect unusually high or low order values that may indicate abnormal sales behavior.
+One possible explanation was an uneven distribution of sales transactions across different sales teams. To investigate this issue, statistical analysis was performed to identify unusually high or low sales transactions that may require further investigation.
 
 ---
 
 ## Objectives
 
-- Map each sales transaction to its corresponding Level-2 Sales Manager.
-- Calculate Average (Mean) for each manager group.
-- Calculate Population Standard Deviation (`STDDEV_POP`).
-- Compute the Z-Score of each transaction.
-- Detect outlier transactions using the **3-Sigma Rule**.
-- Generate both summary and detailed anomaly reports.
+- Map each sales transaction to its corresponding **Level-2 Sales Manager**.
+- Calculate the **Average (Mean)** and **Population Standard Deviation** for each group.
+- Compute the **Z-Score** of every transaction.
+- Detect outliers using the **3-Sigma Rule**.
+- Produce summary and detailed anomaly reports.
 
 ---
 
 ## Dataset
 
-The hackathon dataset consists of two tables.
+The analysis uses two tables provided in the SQL Hackathon dataset.
 
-### `nodes`
-
-Stores the organizational hierarchy.
-
-| Column | Description |
-|---------|-------------|
-| id | Employee ID |
-| parent_id | Parent node |
-
-### `orders`
-
-Stores sales order transactions.
-
-| Column | Description |
-|---------|-------------|
-| no_urut | Transaction ID |
-| node_id | Sales ID |
-| nilai_order | Order Value |
+| Table | Description |
+|--------|-------------|
+| `nodes` | Organizational hierarchy of sales employees |
+| `orders` | Sales order transactions |
 
 ---
 
 ## SQL Techniques Used
 
-- Temporary Tables
 - Self Join
 - LEFT JOIN
 - INNER JOIN
 - CASE WHEN
-- Aggregate Functions
+- Temporary Tables
+- Aggregate Functions (`AVG`, `STDDEV_POP`, `COUNT`)
 - GROUP BY
 - UNION ALL
-- Population Standard Deviation (`STDDEV_POP`)
 - Z-Score Calculation
 
 ---
 
-## Statistical Formula
+## Analysis Results
 
-### Z-Score
+The analysis successfully detected **20 abnormal sales transactions** across **4 Level-2 Sales Manager groups**.
 
-```text
-Z = (X − μ) / σ
-```
+| Level-2 Sales Manager | Number of Outliers |
+|-----------------------|-------------------:|
+| N0548 | 5 |
+| N0549 | 3 |
+| N0550 | 3 |
+| N0551 | 9 |
 
-Where:
+### Key Findings
 
-- **X** = Transaction value
-- **μ** = Average order value
-- **σ** = Population Standard Deviation
-
-Transactions outside
-
-```text
-Mean ± (3 × Standard Deviation)
-```
-
-are classified as outliers.
+- **N0551** recorded the highest number of detected outliers (**9 transactions**).
+- Both unusually high and unusually low sales transactions were identified.
+- Transactions were compared only within the same managerial group, making the analysis fair despite differences in sales volume.
 
 ---
 
-## Project Structure
+## Business Impact
 
-```
-sql-sales-performance-analysis/
-│
-├── sql/
-│   └── jawaban.sql
-│
-├── images/
-│
-├── README.md
-└── LICENSE
-```
+This analysis helps management quickly identify abnormal sales transactions that deserve further investigation.
+
+Potential business insights include:
+
+- Exceptional sales performance
+- Unusually large customer orders
+- Data quality issues
+- Irregular sales patterns
+
+Instead of reviewing every transaction manually, management can focus on statistically significant anomalies.
 
 ---
 
-## Skills Demonstrated
+## 📄 Results
 
-- SQL
-- MySQL
-- Data Analysis
-- Statistical Analysis
-- Business Analytics
-- Root Cause Analysis
-- Hierarchical Data Processing
+The complete analysis results are available in the **`results/`** folder:
+
+| File | Description |
+|------|-------------|
+| `summary.csv` | Summary of detected outliers for each Level-2 Sales Manager |
+| `outliers.csv` | Detailed outlier transactions, including Average, Standard Deviation, Distance from Mean, and Z-Score |
+| `output.csv` | Final output combining both summary and detailed anomaly reports |
 
 ---
 
@@ -131,9 +103,13 @@ sql-sales-performance-analysis/
 - Rank **#39 of 194 Participants**
 - Score **100 (Honors)**
 
+### Certificate
+
+![Certificate](images/certificate.png)
+
 ---
 
-## Author
+## 👩‍💻 Author
 
 **Tantri Silaen**
 
