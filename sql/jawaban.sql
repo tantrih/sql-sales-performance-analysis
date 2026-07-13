@@ -230,3 +230,11 @@ ORDER BY
     level2,
     jumlah_anomali DESC,
     id;
+
+SELECT *
+FROM tmp_summary
+ORDER BY level2;
+
+SELECT *
+FROM tmp_outliers
+ORDER BY level2, ABS(z_score) DESC;
