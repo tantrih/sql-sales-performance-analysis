@@ -105,7 +105,7 @@ The complete analysis results are available in the **`results/`** folder:
 
 ### Certificate
 
-![Certificate](images/certificate.png)
+![Certificate](images/certificate-DQLABHCK100V3UNLQJM.pdf)
 
 ---
 
