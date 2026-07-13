@@ -106,7 +106,7 @@ The complete analysis results are available in the **`results/`** folder:
 
 ### Certificate
 
-![Certificate](images/certificate-DQLABHCK100V3UNLQJM.PNG)
+![Certificate](images/certificate-DQLABHCK100V3UNLQJM.png)
 
 ---
 
@@ -114,4 +114,4 @@ The complete analysis results are available in the **`results/`** folder:
 
 **Tantri Silaen**
 
-Aspiring Data Analyst with focus on SQL, Python, and business analytics
+Data Analyst | SQL · Python · Business Analytics
