@@ -46,6 +46,7 @@ The analysis uses two tables provided in the SQL Hackathon dataset.
 - GROUP BY
 - UNION ALL
 - Z-Score Calculation
+- **Note on MySQL 5.7 Constraints:** This solution was built specifically for MySQL 5.7, which does not support Common Table Expressions (CTEs) or window functions. Instead, the analysis pipeline was structured using Temporary Tables to achieve the same result — demonstrating the ability to adapt SQL solutions to environment constraints.
 
 ---
 
@@ -105,7 +106,7 @@ The complete analysis results are available in the **`results/`** folder:
 
 ### Certificate
 
-![Certificate](images/certificate-DQLABHCK100V3UNLQJM.pdf)
+![Certificate](images/certificate-DQLABHCK100V3UNLQJM.PNG)
 
 ---
 
@@ -113,6 +114,4 @@ The complete analysis results are available in the **`results/`** folder:
 
 **Tantri Silaen**
 
-Bachelor of Applied Software Engineering
-
-Aspiring Data Analyst | Data Scientist
+Aspiring Data Analyst with focus on SQL, Python, and business analytics
